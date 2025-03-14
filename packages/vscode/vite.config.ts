@@ -5,16 +5,15 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.mts'),
+      fileName: 'extension',
       formats: ['cjs']
     },
     minify: false,
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
-      external: ['vscode', 'node:fs', 'node:path'],
-      output: { entryFileNames: 'extension.js' }
+      external: ['vscode', 'node:fs', 'node:path']
     },
-    sourcemap: true,
-    ssr: true
+    sourcemap: true
   },
   resolve: {
     alias: {
