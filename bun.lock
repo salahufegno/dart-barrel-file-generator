@@ -21,14 +21,14 @@
     },
     "packages/core": {
       "name": "@dbf/core",
-      "version": "1.0.1",
+      "version": "2.0.1",
       "dependencies": {
         "minimatch": "10.0.1",
       },
     },
     "packages/vscode": {
       "name": "@dbf/vscode",
-      "version": "7.0.2",
+      "version": "7.2.1",
       "dependencies": {
         "@dbf/core": "workspace:*",
       },

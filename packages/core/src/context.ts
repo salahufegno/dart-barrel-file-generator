@@ -185,7 +185,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
         throw new Error('Select a folder from the workspace');
       }
 
-      return generate(state.path);
+      return generate(toPosixPath(state.fsPath));
     } catch {
       logger.error('Error validating the generation');
     }
@@ -201,7 +201,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
 
     logger.log(`[${formatDate()}] Generation started ${formatDate(ts)}`);
     logger.log(
-      `[${formatDate()}] Type: ${type ? 'recursive' : 'regular'} - Path: ${fsPath}`
+      `[${formatDate()}] Type: ${type.toLowerCase()} - Path: ${fsPath}`
     );
 
     return validateAndGenerate(workspace);
