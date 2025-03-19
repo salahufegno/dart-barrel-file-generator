@@ -1,5 +1,5 @@
 import { exec as _exec } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import { dirname, join } from 'node:path';
@@ -19,6 +19,7 @@ const TREE = [
   'lib/main.dart',
   'lib/component.dart'
 ];
+
 const TMP_DIR = join(os.tmpdir(), 'dbf-cli');
 const SRC_DIR = join(TMP_DIR, 'src');
 const LIB_DIR = join(TMP_DIR, 'lib');
@@ -26,9 +27,38 @@ const LIB_DIR = join(TMP_DIR, 'lib');
 const COMPONENTS_DIR = join(SRC_DIR, 'components');
 const NESTED_DIR = join(COMPONENTS_DIR, 'nested');
 
+const COMPLEX_ARGS = Object.entries({
+  '--exclude-freezed': true,
+  '--exclude-generated': true,
+  '--excluded-files': '*_one.dart',
+  '-n': 'complex'
+}).reduce((agg, [arg, value]) => `${agg} ${value === true ? arg : `${arg} ${value}`}`, '').trim();
+
 const exec = promisify(_exec);
 
 const getOptionTitle = (dir: string, option?: string, args?: string) => `${dir.replace(os.tmpdir(), '')} ${option ?? ''} ${args ?? ''}`.trim();
+
+// Helper to get all barrel files when using recursive mode
+const getAllBarrelFiles = async (startDir: string): Promise<string[]> => {
+  const result: string[] = [];
+  const stack = [startDir];
+
+  while (stack.length > 0) {
+    const currentDir = stack.pop()!;
+    const files = readdirSync(currentDir, { withFileTypes: true });
+
+    for (const file of files) {
+      const fullPath = join(currentDir, file.name);
+      if (file.isDirectory()) {
+        stack.push(fullPath);
+      } else if (!TREE.includes(fullPath.replace(TMP_DIR, '').slice(1))) {
+        result.push(fullPath);
+      }
+    }
+  }
+
+  return result;
+};
 
 beforeEach(async () => {
   await Promise.all(TREE.map(async (filePath) => {
@@ -55,8 +85,19 @@ describe('dbf-cli', () => {
     ].forEach(({ dir, out }) => {
       it(getOptionTitle(dir), async () => {
         await exec(`bun ./src/bin.ts${type}${dir}`);
-        expect(await readFile(join(dir, out), 'utf-8'))
-          .toMatchSnapshot();
+
+        if (genType === '--recursive') {
+          // For recursive, we need to check all generated barrel files
+          const barrelFiles = await getAllBarrelFiles(dir);
+          expect(barrelFiles.length).toBeGreaterThan(0);
+
+          for (const file of barrelFiles) {
+            expect(await readFile(file, 'utf-8')).toMatchSnapshot(file.replace(TMP_DIR, ''));
+          }
+        } else {
+          // For regular and subfolders modes, check only the expected output file
+          expect(await readFile(join(dir, out), 'utf-8')).toMatchSnapshot();
+        }
       });
     });
 
@@ -70,10 +111,37 @@ describe('dbf-cli', () => {
       { dir: LIB_DIR, option: '--prepend-package', out: 'lib.dart' }
     ].forEach(({ args, dir, option, out }) => {
       it(getOptionTitle(dir, option, args), async () => {
-        await exec(`bun ./src/bin.ts${type}${dir} ${option} ${args ?? ''}`);
-        expect(await readFile(join(dir, out), 'utf-8'))
-          .toMatchSnapshot();
+        await exec(`bun ./src/bin.ts${type}${dir} ${option}${args ? ` ${args}` : ''}`);
+
+        if (genType === '--recursive') {
+          // For recursive, check all generated barrel files
+          const barrelFiles = await getAllBarrelFiles(dir);
+          expect(barrelFiles.length).toBeGreaterThan(0);
+
+          for (const file of barrelFiles) {
+            expect(await readFile(file, 'utf-8')).toMatchSnapshot(file.replace(TMP_DIR, ''));
+          }
+        } else {
+          // For regular and subfolders, check only the expected output file
+          expect(await readFile(join(dir, out), 'utf-8')).toMatchSnapshot();
+        }
       });
+    });
+
+    it(`runs a complex example (${COMPLEX_ARGS})`, async () => {
+      await exec(`bun ./src/bin.ts${type}${COMPONENTS_DIR} ${COMPLEX_ARGS}`);
+
+      if (genType === '--recursive') {
+        // For recursive, we need to check all generated files
+        const barrelFiles = await getAllBarrelFiles(COMPONENTS_DIR);
+        expect(barrelFiles.length).toBeGreaterThan(0);
+
+        for (const file of barrelFiles) {
+          expect(await readFile(file, 'utf-8')).toMatchSnapshot(file.replace(TMP_DIR, ''));
+        }
+      } else {
+        expect(await readFile(join(COMPONENTS_DIR, 'complex.dart'), 'utf-8')).toMatchSnapshot();
+      }
     });
   });
 });
