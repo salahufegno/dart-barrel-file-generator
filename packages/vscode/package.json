@@ -149,7 +149,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
-    "package": "bun ./scripts/package.ts"
+    "package": "bun ./scripts/package.ts",
+    "publish": "bun vsce publish --packagePath ./extension.vsix --skip-license --skip-duplicate"
   },
   "dependencies": {
     "@dbf/core": "workspace:*"
