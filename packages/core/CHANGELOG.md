@@ -1,4 +1,4 @@
-# @dbf/core
+# @dbfg/core
 
 ## 2.2.0
 

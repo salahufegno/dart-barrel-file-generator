@@ -1,4 +1,4 @@
-import type { GenerationConfig } from '@dbf/core';
+import type { GenerationConfig } from '@dbfg/core';
 
 import { exec as _exec } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
@@ -80,7 +80,7 @@ afterEach(async () => {
   }
 });
 
-describe('dbf-cli', () => {
+describe('@dbfg/cli', () => {
   describe.each(['--regular', '--recursive', '--subfolders'])('%s', (genType) => {
     const type = genType === '--regular' ? ' ' : ` ${genType} `;
 

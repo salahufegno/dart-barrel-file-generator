@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`dbf-cli > --recursive > /dbf-cli/lib --prepend-package > /lib/lib.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/lib --prepend-package > /lib/lib.dart 1`] = `
 "export 'package:dbf-cli/component.dart';
 export 'package:dbf-cli/main.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src > /src/components/components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src > /src/components/components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -16,20 +16,20 @@ export 'nested/nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src > /src/src.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src > /src/src.dart 1`] = `
 "export 'components/components.dart';
 export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/components/components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/components/components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -39,20 +39,20 @@ export 'nested/nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/src.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src --excluded-files main.dart > /src/src.dart 1`] = `
 "export 'components/components.dart';
 export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components > /src/components/components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components > /src/components/components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -62,14 +62,14 @@ export 'nested/nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --append-folder-name > /src/components/components_components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --append-folder-name > /src/components/components_components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -79,14 +79,14 @@ export 'nested/nested_nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --append-folder-name > /src/components/nested/nested_nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --append-folder-name > /src/components/nested/nested_nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-freezed > /src/components/components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --exclude-freezed > /src/components/components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -95,14 +95,14 @@ export 'nested/nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-freezed > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --exclude-freezed > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-generated > /src/components/components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --exclude-generated > /src/components/components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
@@ -111,14 +111,14 @@ export 'nested/nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-generated > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --exclude-generated > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --prepend-folder-name > /src/components/components_components.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --prepend-folder-name > /src/components/components_components.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -128,21 +128,21 @@ export 'nested/nested_nested.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components --prepend-folder-name > /src/components/nested/nested_nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components --prepend-folder-name > /src/components/nested/nested_nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components -n out > /src/components/nested/out.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components -n out > /src/components/nested/out.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components -n out > /src/components/out.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components -n out > /src/components/out.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -152,14 +152,14 @@ export 'nested/out.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > /dbf-cli/src/components/nested > /src/components/nested/nested.dart 1`] = `
+exports[`@dbfg/cli > --recursive > /dbf-cli/src/components/nested > /src/components/nested/nested.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) > /src/components/complex.dart 1`] = `
+exports[`@dbfg/cli > --recursive > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) > /src/components/complex.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
@@ -167,14 +167,14 @@ export 'nested/complex.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) > /src/components/nested/complex.dart 1`] = `
+exports[`@dbfg/cli > --recursive > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) > /src/components/nested/complex.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > uses a config file > /src/components/json.dart 1`] = `
+exports[`@dbfg/cli > --recursive > uses a config file > /src/components/json.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -184,30 +184,30 @@ export 'nested/json.dart';
 "
 `;
 
-exports[`dbf-cli > --recursive > uses a config file > /src/components/nested/json.dart 1`] = `
+exports[`@dbfg/cli > --recursive > uses a config file > /src/components/nested/json.dart 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/lib --prepend-package 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/lib --prepend-package 1`] = `
 "export 'package:dbf-cli/component.dart';
 export 'package:dbf-cli/main.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src --excluded-files main.dart 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src --excluded-files main.dart 1`] = `
 "export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src 1`] = `
 "export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components --append-folder-name 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components --append-folder-name 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -216,7 +216,7 @@ export 'component_two.freezed.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components --exclude-freezed 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components --exclude-freezed 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -224,7 +224,7 @@ export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components --exclude-generated 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components --exclude-generated 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
@@ -232,16 +232,7 @@ export 'component_two.freezed.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components --prepend-folder-name 1`] = `
-"export 'component_one.dart';
-export 'component_three.dart';
-export 'component_three.g.dart';
-export 'component_two.dart';
-export 'component_two.freezed.dart';
-"
-`;
-
-exports[`dbf-cli > --regular > /dbf-cli/src/components -n out 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components --prepend-folder-name 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -250,7 +241,7 @@ export 'component_two.freezed.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components -n out 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -259,21 +250,7 @@ export 'component_two.freezed.dart';
 "
 `;
 
-exports[`dbf-cli > --regular > /dbf-cli/src/components/nested 1`] = `
-"export 'component_one.dart';
-export 'component_three.dart';
-export 'component_two.dart';
-"
-`;
-
-exports[`dbf-cli > --regular > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) 1`] = `
-"export 'component_one.dart';
-export 'component_three.dart';
-export 'component_two.dart';
-"
-`;
-
-exports[`dbf-cli > --regular > uses a config file 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -282,13 +259,36 @@ export 'component_two.freezed.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/lib --prepend-package 1`] = `
+exports[`@dbfg/cli > --regular > /dbf-cli/src/components/nested 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;
+
+exports[`@dbfg/cli > --regular > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;
+
+exports[`@dbfg/cli > --regular > uses a config file 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`@dbfg/cli > --subfolders > /dbf-cli/lib --prepend-package 1`] = `
 "export 'package:dbf-cli/component.dart';
 export 'package:dbf-cli/main.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src --excluded-files main.dart 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src --excluded-files main.dart 1`] = `
 "export 'components/component_one.dart';
 export 'components/component_three.dart';
 export 'components/component_three.g.dart';
@@ -301,7 +301,7 @@ export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src 1`] = `
 "export 'components/component_one.dart';
 export 'components/component_three.dart';
 export 'components/component_three.g.dart';
@@ -314,7 +314,7 @@ export 'main.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components --append-folder-name 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components --append-folder-name 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -326,7 +326,7 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components --exclude-freezed 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components --exclude-freezed 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -337,7 +337,7 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components --exclude-generated 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components --exclude-generated 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
@@ -348,19 +348,7 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components --prepend-folder-name 1`] = `
-"export 'component_one.dart';
-export 'component_three.dart';
-export 'component_three.g.dart';
-export 'component_two.dart';
-export 'component_two.freezed.dart';
-export 'nested/component_one.dart';
-export 'nested/component_three.dart';
-export 'nested/component_two.dart';
-"
-`;
-
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components -n out 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components --prepend-folder-name 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -372,7 +360,7 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components -n out 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';
@@ -384,14 +372,26 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > /dbf-cli/src/components/nested 1`] = `
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`@dbfg/cli > --subfolders > /dbf-cli/src/components/nested 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) 1`] = `
+exports[`@dbfg/cli > --subfolders > runs a complex example (--exclude-freezed --exclude-generated --excluded-files *_one.dart -n complex) 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
@@ -401,7 +401,7 @@ export 'nested/component_two.dart';
 "
 `;
 
-exports[`dbf-cli > --subfolders > uses a config file 1`] = `
+exports[`@dbfg/cli > --subfolders > uses a config file 1`] = `
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_three.g.dart';

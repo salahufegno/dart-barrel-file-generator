@@ -100,7 +100,7 @@ export default antfu({
             'unknown'
           ],
           ignoreCase: true,
-          internalPattern: ['\\@dbf\\/+'],
+          internalPattern: ['\\@dbfg\\/+'],
           maxLineLength: undefined,
           newlinesBetween: 'always',
           order: 'asc',

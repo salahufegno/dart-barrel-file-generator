@@ -1,4 +1,4 @@
-# @dbf/vscode
+# @dbfg/vscode
 
 ## 7.3.1
 
@@ -19,7 +19,7 @@
 - Adds tests and updates build step ([#123](https://github.com/mikededo/dart-barrel-file-generator/pull/123))
 
 - Updated dependencies [[`cf0073e`](https://github.com/mikededo/dart-barrel-file-generator/commit/cf0073e579e51a9dd31f50369dcf9ad616bc1c6f)]:
-  - @dbf/core@2.2.0
+  - @dbfg/core@2.2.0
 
 ## 7.2.3
 
@@ -28,21 +28,21 @@
 - Validate `workspace` folders in `vscode` package as it's specific feature ([#121](https://github.com/mikededo/dart-barrel-file-generator/pull/121))
 
 - Updated dependencies [[`9e574db`](https://github.com/mikededo/dart-barrel-file-generator/commit/9e574db3569dea7c8723bfce417045908fcab11e)]:
-  - @dbf/core@2.1.0
+  - @dbfg/core@2.1.0
 
 ## 7.2.2
 
 ### Patch Changes
 
 - Updated dependencies [[`0ec29d2`](https://github.com/mikededo/dart-barrel-file-generator/commit/0ec29d2408e11e4c94860cdd3d971ade7b3bc4ea)]:
-  - @dbf/core@2.0.2
+  - @dbfg/core@2.0.2
 
 ## 7.2.1
 
 ### Patch Changes
 
 - Updated dependencies [[`279a8a2`](https://github.com/mikededo/dart-barrel-file-generator/commit/279a8a2794fd83ae1d2d350aac4e060098c010df)]:
-  - @dbf/core@2.0.1
+  - @dbfg/core@2.0.1
 
 ## 7.2.0
 
@@ -53,7 +53,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`db2d0be`](https://github.com/mikededo/dart-barrel-file-generator/commit/db2d0be7f3efdd0701ba940736e50e415407b987)]:
-  - @dbf/core@2.0.0
+  - @dbfg/core@2.0.0
 
 ## 7.1.0
 
@@ -72,7 +72,7 @@
 - Replace `dartBarrelFileGenerator` for `dart-barrel-file-generator` ([`0a4b3d6`](https://github.com/mikededo/dart-barrel-file-generator/commit/0a4b3d6e1188aa528d33aa33f578416ccb684b11))
 
 - Updated dependencies [[`0a4b3d6`](https://github.com/mikededo/dart-barrel-file-generator/commit/0a4b3d6e1188aa528d33aa33f578416ccb684b11)]:
-  - @dbf/core@1.0.1
+  - @dbfg/core@1.0.1
 
 ## 7.0.1
 
@@ -93,4 +93,4 @@
 ### Patch Changes
 
 - Updated dependencies [a864a2a]
-  - @dbf/core@1.0.0
+  - @dbfg/core@1.0.0

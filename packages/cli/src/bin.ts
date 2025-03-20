@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 /* eslint-disable node/prefer-global/process */
 
-import type { GenerationType } from '@dbf/core';
+import type { GenerationType } from '@dbfg/core';
 
 import { program } from '@commander-js/extra-typings';
 import fs from 'node:fs';
@@ -9,7 +9,7 @@ import path from 'node:path';
 import type { InferInput } from 'valibot';
 import * as v from 'valibot';
 
-import { createContext, toPosixPath } from '@dbf/core';
+import { createContext, toPosixPath } from '@dbfg/core';
 
 import { description, name as packageName, version } from '../package.json';
 

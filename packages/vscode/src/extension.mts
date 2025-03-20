@@ -1,9 +1,9 @@
-import type { GenerationConfig, GenerationConfigKeys, GenerationType } from '@dbf/core';
+import type { GenerationConfig, GenerationConfigKeys, GenerationType } from '@dbfg/core';
 
 import type { Uri } from 'vscode';
 import { window, workspace } from 'vscode';
 
-import { createContext, toPosixPath } from '@dbf/core';
+import { createContext, toPosixPath } from '@dbfg/core';
 
 const EXTENSION_KEY = 'dart-barrel-file-generator';
 

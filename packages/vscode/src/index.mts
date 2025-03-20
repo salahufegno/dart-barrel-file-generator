@@ -1,4 +1,4 @@
-import type { FocusedGenerations, GenerationType } from '@dbf/core';
+import type { FocusedGenerations, GenerationType } from '@dbfg/core';
 
 import type { ExtensionContext } from 'vscode';
 import { commands, Uri, window } from 'vscode';

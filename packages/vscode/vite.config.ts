@@ -17,7 +17,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@dbf/core': resolve(__dirname, '../core/src')
+      '@dbfg/core': resolve(__dirname, '../core/src')
     }
   }
 });

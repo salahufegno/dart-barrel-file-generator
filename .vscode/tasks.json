@@ -4,7 +4,7 @@
     {
       "type": "shell",
       "command": "bun",
-      "args": ["run", "dev", "--filter=@dbf/vscode"],
+      "args": ["run", "dev", "--filter=@dbfg/vscode"],
       "label": "build",
       "presentation": {
         "clear": true,
