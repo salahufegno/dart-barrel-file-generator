@@ -26,7 +26,7 @@ fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
 console.log(`${logPrefix} Packaging extension...\n`);
 execSync(
-  `bun vsce package --no-dependencies --skip-license${isCi ? ' --out ../../extension.vsix' : ''}`,
+  `bun vsce package --no-dependencies --skip-license${isCi ? ' --out ./extension.vsix' : ''}`,
   { stdio: 'inherit' }
 );
 
