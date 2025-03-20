@@ -174,6 +174,23 @@ export 'component_two.dart';
 "
 `;
 
+exports[`dbf-cli > --recursive > uses a config file > /src/components/json.dart 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/json.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > uses a config file > /src/components/nested/json.dart 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;
+
 exports[`dbf-cli > --regular > /dbf-cli/lib --prepend-package 1`] = `
 "export 'package:dbf-cli/component.dart';
 export 'package:dbf-cli/main.dart';
@@ -253,6 +270,15 @@ exports[`dbf-cli > --regular > runs a complex example (--exclude-freezed --exclu
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > uses a config file 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
 "
 `;
 
@@ -369,6 +395,18 @@ exports[`dbf-cli > --subfolders > runs a complex example (--exclude-freezed --ex
 "export 'component_one.dart';
 export 'component_three.dart';
 export 'component_two.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > uses a config file 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
 export 'nested/component_one.dart';
 export 'nested/component_three.dart';
 export 'nested/component_two.dart';

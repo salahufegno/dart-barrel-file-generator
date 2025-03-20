@@ -1,3 +1,5 @@
+import type { GenerationConfig } from '@dbf/core';
+
 import { exec as _exec } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -5,6 +7,10 @@ import os from 'node:os';
 import { dirname, join } from 'node:path';
 import { promisify } from 'node:util';
 
+const JSON_CONFIG: Partial<GenerationConfig> = {
+  defaultBarrelName: 'json',
+  prependPackageToLibExport: true
+};
 const TREE = [
   'src/components/component_one.dart',
   'src/components/component_two.dart',
@@ -14,7 +20,6 @@ const TREE = [
   'src/components/nested/component_one.dart',
   'src/components/nested/component_two.dart',
   'src/components/nested/component_three.dart',
-  'src/empty',
   'src/main.dart',
   'lib/main.dart',
   'lib/component.dart'
@@ -23,7 +28,6 @@ const TREE = [
 const TMP_DIR = join(os.tmpdir(), 'dbf-cli');
 const SRC_DIR = join(TMP_DIR, 'src');
 const LIB_DIR = join(TMP_DIR, 'lib');
-// const EMPTY_DIR = join(SRC_DIR, 'empty');
 const COMPONENTS_DIR = join(SRC_DIR, 'components');
 const NESTED_DIR = join(COMPONENTS_DIR, 'nested');
 
@@ -38,10 +42,9 @@ const exec = promisify(_exec);
 
 const getOptionTitle = (dir: string, option?: string, args?: string) => `${dir.replace(os.tmpdir(), '')} ${option ?? ''} ${args ?? ''}`.trim();
 
-// Helper to get all barrel files when using recursive mode
-const getAllBarrelFiles = async (startDir: string): Promise<string[]> => {
+const getAllBarrelFiles = async (from: string, defaultName?: string): Promise<string[]> => {
   const result: string[] = [];
-  const stack = [startDir];
+  const stack = [from];
 
   while (stack.length > 0) {
     const currentDir = stack.pop()!;
@@ -51,7 +54,10 @@ const getAllBarrelFiles = async (startDir: string): Promise<string[]> => {
       const fullPath = join(currentDir, file.name);
       if (file.isDirectory()) {
         stack.push(fullPath);
-      } else if (!TREE.includes(fullPath.replace(TMP_DIR, '').slice(1))) {
+      } else if (
+        (defaultName && fullPath.endsWith(defaultName)) ||
+        (!defaultName && !TREE.includes(fullPath.replace(TMP_DIR, '').slice(1)))
+      ) {
         result.push(fullPath);
       }
     }
@@ -114,7 +120,6 @@ describe('dbf-cli', () => {
         await exec(`bun ./src/bin.ts${type}${dir} ${option}${args ? ` ${args}` : ''}`);
 
         if (genType === '--recursive') {
-          // For recursive, check all generated barrel files
           const barrelFiles = await getAllBarrelFiles(dir);
           expect(barrelFiles.length).toBeGreaterThan(0);
 
@@ -132,7 +137,6 @@ describe('dbf-cli', () => {
       await exec(`bun ./src/bin.ts${type}${COMPONENTS_DIR} ${COMPLEX_ARGS}`);
 
       if (genType === '--recursive') {
-        // For recursive, we need to check all generated files
         const barrelFiles = await getAllBarrelFiles(COMPONENTS_DIR);
         expect(barrelFiles.length).toBeGreaterThan(0);
 
@@ -141,6 +145,25 @@ describe('dbf-cli', () => {
         }
       } else {
         expect(await readFile(join(COMPONENTS_DIR, 'complex.dart'), 'utf-8')).toMatchSnapshot();
+      }
+    });
+
+    it('uses a config file', async () => {
+      const path = join(TMP_DIR, 'config.json');
+      await writeFile(path, JSON.stringify(JSON_CONFIG));
+
+      await exec(`bun ./src/bin.ts${type}${COMPONENTS_DIR} --config ${path}`);
+      const defaultName = `${JSON_CONFIG.defaultBarrelName}.dart`;
+
+      if (genType === '--recursive') {
+        const barrelFiles = await getAllBarrelFiles(COMPONENTS_DIR, defaultName);
+        expect(barrelFiles.length).toBeGreaterThan(0);
+
+        for (const file of barrelFiles) {
+          expect(await readFile(file, 'utf-8')).toMatchSnapshot(file.replace(TMP_DIR, ''));
+        }
+      } else {
+        expect(await readFile(join(COMPONENTS_DIR, defaultName), 'utf-8')).toMatchSnapshot();
       }
     });
   });

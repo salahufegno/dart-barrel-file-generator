@@ -33,14 +33,26 @@ const ConfigSchema = v.object({
   skipEmpty: v.boolean('`skipEmpty` must be a boolean')
 });
 
-export const run = async (directory: string, type: GenerationType, config: InferInput<typeof ConfigSchema>) => {
+const DEFAULT_CONFIG: InferInput<typeof ConfigSchema> = {
+  appendFolderName: false,
+  defaultBarrelName: '',
+  excludeDirList: [],
+  excludeFileList: [],
+  excludeFreezed: false,
+  excludeGenerated: false,
+  prependFolderName: false,
+  prependPackageToLibExport: false,
+  skipEmpty: false
+};
+
+const run = async (directory: string, type: GenerationType, config: InferInput<typeof ConfigSchema>) => {
   const Context = createContext({
     config: { ...config, promptName: false },
     logger: {
       done: console.log,
-      error: console.log,
+      error: console.error,
       log: console.log,
-      warn: console.log
+      warn: console.warn
     }
   });
 
@@ -62,7 +74,8 @@ export const run = async (directory: string, type: GenerationType, config: Infer
 
 const loadConfigFile = async (configPath: string) => {
   try {
-    return JSON.parse(await fs.promises.readFile(configPath, 'utf8'));
+    const parsed = JSON.parse(await fs.promises.readFile(configPath, 'utf8'));
+    return { ...DEFAULT_CONFIG, ...parsed };
   } catch (error) {
     throw new Error(`Failed to load configuration file: ${error}`);
   }
