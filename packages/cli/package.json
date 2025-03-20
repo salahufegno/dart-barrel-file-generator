@@ -4,7 +4,9 @@
   "version": "1.0.2",
   "private": false,
   "description": "CLI to generate Dart barrel files",
-  "bin": "./dist/bin.cjs",
+  "bin": {
+    "dbfg-cli": "./dist/bin.cjs"
+  },
   "engines": {
     "node": "^20.0.0 || >=22.0.0"
   },
