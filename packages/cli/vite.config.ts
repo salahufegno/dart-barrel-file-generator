@@ -15,7 +15,7 @@ export default defineConfig({
     target: 'node20'
   },
   plugins: [
-    nodeExternals()
+    nodeExternals({ exclude: ['@dbfg/core'] })
   ],
   resolve: {
     alias: {
