@@ -20,6 +20,7 @@ import {
 type CreateContextOptions = {
   config: GenerationConfig;
   logger: GenerationLogger;
+  options?: { logTimestamps?: boolean };
 };
 type StartParams = {
   fsPath: string;
@@ -29,17 +30,27 @@ type StartParams = {
 type State = {
   fsPath: string;
   path: string;
+  startTimestamp?: number;
   type?: GenerationType;
   promptedName?: string;
-
-  startTimestamp?: number;
 };
 
-export const createContext = ({ config, logger }: CreateContextOptions) => {
+const DEFAULT_OPTIONS: CreateContextOptions['options'] = {
+  logTimestamps: true
+};
+export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: CreateContextOptions) => {
   const state: State = { fsPath: '', path: '', type: undefined };
 
+  const parseLogString = (log: string) => {
+    if (!options.logTimestamps) {
+      return log;
+    }
+
+    return `[${formatDate()}] ${log}`;
+  };
+
   const endGeneration = () => {
-    logger.log(`[${formatDate()}] Generation finished`);
+    logger.log(parseLogString('Generation finished'));
   };
 
   const definedOrError = (value: keyof State) => {
@@ -83,7 +94,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
       exports = `${exports}export '${prependPackageValue}${file}';\n`;
     }
 
-    logger.log(`[${formatDate()}] Exporting ${targetPath} - found ${files.length} Dart files`);
+    logger.log(parseLogString(`Exporting ${targetPath} - found ${files.length} Dart files`));
     const barrelFile = `${targetPath}/${dirName}.dart`;
 
     return new Promise((resolve) => {
@@ -95,9 +106,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
           throw new Error(error.message);
         }
 
-        logger.log(
-          `[${formatDate()}] Generated successfull barrel file at ${path}`
-        );
+        logger.log(parseLogString(`Generated successfull barrel file at ${path}`));
         resolve(path);
       });
     });
@@ -189,10 +198,10 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
     state.path = path;
     state.type = type;
 
-    logger.log(`[${formatDate()}] Generation started ${formatDate(ts)}`);
     logger.log(
-      `[${formatDate()}] Type: ${type.toLowerCase()} - Path: ${fsPath}`
+      parseLogString(`Generation started ${options.logTimestamps ? formatDate(ts) : ''}`)
     );
+    logger.log(parseLogString(`Type: ${type.toLowerCase()} - Path: ${fsPath}`));
 
     return validateAndGenerate();
   };
@@ -203,7 +212,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
       return definedOrError('fsPath');
     },
     onError: (error: string) => {
-      logger.log(`[${formatDate()}] An error occurred:`);
+      logger.log(parseLogString(`An error occurred:`));
       logger.error(error);
     },
     get path() {
