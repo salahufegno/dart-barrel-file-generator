@@ -6,12 +6,25 @@ import type { GenerationType } from '@dbfg/core';
 import { program } from '@commander-js/extra-typings';
 import fs from 'node:fs';
 import path from 'node:path';
+import pc from 'picocolors';
 import type { InferInput } from 'valibot';
 import * as v from 'valibot';
 
 import { createContext, toPosixPath } from '@dbfg/core';
 
 import { description, name as packageName, version } from '../package.json';
+
+const log = pc.bgBlueBright(pc.black(' INFO '));
+const done = pc.bgGreen(pc.black(' DONE '));
+const warn = pc.bgYellow(pc.black(' WARN '));
+const error = pc.bgRed(pc.black(' ERROR '));
+const logger = (prefix: string) => (...messages: string[]) => console.log(prefix, ...messages);
+const cliLogger = {
+  done: logger(done),
+  error: logger(error),
+  log: logger(log),
+  warn: logger(warn)
+};
 
 const SUCCESS_MESSAGES = {
   RECURSIVE: 'Successfully generated recursive barrel files for {path}',
@@ -48,11 +61,9 @@ const DEFAULT_CONFIG: InferInput<typeof ConfigSchema> = {
 const run = async (directory: string, type: GenerationType, config: InferInput<typeof ConfigSchema>) => {
   const Context = createContext({
     config: { ...config, promptName: false },
-    logger: {
-      done: console.log,
-      error: console.error,
-      log: console.log,
-      warn: console.warn
+    logger: cliLogger,
+    options: {
+      logTimestamps: false
     }
   });
 
@@ -127,9 +138,9 @@ program
       );
       await run(resolvedPath, type, parsedConfig);
 
-      console.log(SUCCESS_MESSAGES[type].replace('{path}', resolvedPath));
+      cliLogger.done(SUCCESS_MESSAGES[type].replace('{path}', resolvedPath));
     } catch (error: any) {
-      console.error(`Error: ${error.message}`);
+      cliLogger.error(`${error.message}`);
       process.exit(1);
     }
   });
