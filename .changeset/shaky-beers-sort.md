@@ -1,5 +1,5 @@
 ---
-"@dbfg/cli": minor
+"@dbfg/core": minor
 ---
 
-Allow disabling loggin timestamps
+Allow disabling logging timestamps
