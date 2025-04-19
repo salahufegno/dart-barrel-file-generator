@@ -1,22 +1,22 @@
 {
-  "publisher": "miquelddg",
-  "name": "@dbfg/vscode",
-  "displayName": "Dart Barrel File Generator",
+  "publisher": "salahu01",
+  "name": "@adbfg/vscode",
+  "displayName": "Advanced Dart Barrel File Generator",
   "version": "7.4.0",
   "private": true,
-  "description": "Visual studio code to generate barrel files for the Dart language.",
+  "description": "A fork of the Dart Barrel File Generator extension for Visual Studio Code. This extension generates barrel files for Dart and Flutter projects, making it easier to manage imports and exports in your codebase.",
   "author": {
-    "name": "Miquel de Domingo i Giralt",
-    "email": "miquelddg@gmail.com",
-    "url": "https://www.github.com/mikededo"
+    "name": "Swalahu cv",
+    "email": "cvsalahu12@gmail.com",
+    "url": "https://www.github.com/salahu01"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikededo/dart-barrel-file-generator"
+    "url": "https://github.com/salahufegno/dart-barrel-file-generator"
   },
   "bugs": {
-    "email": "miquelddg@gmail.com",
-    "url": "https://www.github.com/mikededo/dart-barrel-file-generator/issues"
+    "email": "cvsalahu12@gmail.com",
+    "url": "https://www.github.com/salahufegno/dart-barrel-file-generator/issues"
   },
   "keywords": [
     "dart",
